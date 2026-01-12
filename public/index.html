@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
@@ -11,12 +11,12 @@
     
     
     
-      <meta name="robots" content="index, follow">
+      <meta name="robots" content="noindex, nofollow">
     
     
 
     
-<link rel="stylesheet" href="/ananke/css/main.min.efe4d852f731d5d1fbb87718387202a97aafd768cdcdaed0662bbe6982e91824.css" >
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
 
 
 
@@ -37,26 +37,25 @@
     
 
     
-      <link rel="canonical" href="https://example.org/">
+      <link rel="canonical" href="http://localhost:1313/">
     
 
     
     
-    <meta property="og:url" content="https://example.org/">
+    <meta property="og:url" content="http://localhost:1313/">
   <meta property="og:site_name" content="安全碎碎念">
   <meta property="og:title" content="安全碎碎念">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="安全碎碎念">
+  <meta itemprop="datePublished" content="2026-01-12T22:59:20+08:00">
+  <meta itemprop="dateModified" content="2026-01-12T22:59:20+08:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="安全碎碎念">
 
-      
-      
-    
 	
-  </head><body class="ma0 avenir bg-near-white production">
+  </head><body class="ma0 avenir bg-near-white development">
 
     
 
@@ -102,11 +101,68 @@
   
 
   
+    <div class="pa3 pa4-ns w-100 w-70-ns center">
+      
+
+      <section class="w-100 mw8">
+        
+        
+          <div class="w-100 mb4 relative">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/%E9%85%8D%E7%BD%AEhugo&#43;vercel%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/" class="color-inherit dim link">
+            配置hugo&#43;vercel自动化环境
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <p>想把 Hugo 博客托管到 Vercel，并在每次推送后自动构建发布？下面用本仓库的配置做个完整示例。</p>
+<h2 id="前置条件">前置条件</h2>
+<ul>
+<li>已有 Vercel 账号，并能从 GitHub/GitLab/Bitbucket 导入仓库</li>
+<li>本地安装 Git、curl，推荐先安装 Hugo Extended 版（<code>brew install hugo</code>）</li>
+<li>代码里有一个 Hugo 站点，本例主题是 <code>ananke</code>，基础配置在 <code>hugo.toml</code></li>
+</ul>
+<h2 id="本地准备">本地准备</h2>
+<ol>
+<li>初始化站点：<code>hugo new site quickstart &amp;&amp; cd quickstart</code></li>
+<li>添加主题并配置：将 <code>theme = 'ananke'</code> 写入 <code>hugo.toml</code>，按需调整 <code>baseURL</code>、<code>title</code></li>
+<li>写一篇文章：<code>hugo new posts/my-first-post.md</code>，填入正文</li>
+<li>本地验证：<code>hugo server -D</code> 打开 <a href="http://localhost:1313">http://localhost:1313</a> 检查页面</li>
+</ol>
+<h2 id="自动化构建脚本">自动化构建脚本</h2>
+<p>仓库提供了 <code>build.sh</code> 作为 Vercel 的构建入口：</p>
+<ul>
+<li>安装 Dart Sass、Go、Hugo、Node.js 固定版本，保证 Vercel 环境一致</li>
+<li>最终执行：<code>hugo --gc --minify --baseURL &quot;https://${VERCEL_PROJECT_PRODUCTION_URL}&quot;</code><br>
+<code>VERCEL_PROJECT_PRODUCTION_URL</code> 由 Vercel 自动注入，可让生成站点指向生产域名</li>
+<li>如需调整版本，修改脚本开头的几个 <code>*_VERSION</code> 变量即可</li>
+</ul>
+<p>本地想模拟 Vercel，可以先导出域名再运行脚本：</p>
+        </div>
+        <a href="/posts/%E9%85%8D%E7%BD%AEhugo&#43;vercel%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+      </section>
+
+      
+
+    </div>
+  
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="https://example.org/" >
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
     &copy;  安全碎碎念 2026 
   </a>
     <div><div class="ananke-socials"></div>

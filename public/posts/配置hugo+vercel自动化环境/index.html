@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>配置hugo&#43;vercel自动化环境 | 安全碎碎念</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="想把 Hugo 博客托管到 Vercel，并在每次推送后自动构建发布？下面用本仓库的配置做个完整示例。
+前置条件
+
+已有 Vercel 账号，并能从 GitHub/GitLab/Bitbucket 导入仓库
+本地安装 Git、curl，推荐先安装 Hugo Extended 版（brew install hugo）
+代码里有一个 Hugo 站点，本例主题是 ananke，基础配置在 hugo.toml
+
+本地准备
+
+初始化站点：hugo new site quickstart &amp;&amp; cd quickstart
+添加主题并配置：将 theme = &#39;ananke&#39; 写入 hugo.toml，按需调整 baseURL、title
+写一篇文章：hugo new posts/my-first-post.md，填入正文
+本地验证：hugo server -D 打开 http://localhost:1313 检查页面
+
+自动化构建脚本
+仓库提供了 build.sh 作为 Vercel 的构建入口：
+
+安装 Dart Sass、Go、Hugo、Node.js 固定版本，保证 Vercel 环境一致
+最终执行：hugo --gc --minify --baseURL &quot;https://${VERCEL_PROJECT_PRODUCTION_URL}&quot;
+VERCEL_PROJECT_PRODUCTION_URL 由 Vercel 自动注入，可让生成站点指向生产域名
+如需调整版本，修改脚本开头的几个 *_VERSION 变量即可
+
+本地想模拟 Vercel，可以先导出域名再运行脚本：">
+    <meta name="generator" content="Hugo 0.154.5">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/%E9%85%8D%E7%BD%AEhugo&#43;vercel%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/%E9%85%8D%E7%BD%AEhugo&#43;vercel%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/">
+  <meta property="og:site_name" content="安全碎碎念">
+  <meta property="og:title" content="配置hugo&#43;vercel自动化环境">
+  <meta property="og:description" content="想把 Hugo 博客托管到 Vercel，并在每次推送后自动构建发布？下面用本仓库的配置做个完整示例。
+前置条件 已有 Vercel 账号，并能从 GitHub/GitLab/Bitbucket 导入仓库 本地安装 Git、curl，推荐先安装 Hugo Extended 版（brew install hugo） 代码里有一个 Hugo 站点，本例主题是 ananke，基础配置在 hugo.toml 本地准备 初始化站点：hugo new site quickstart &amp;&amp; cd quickstart 添加主题并配置：将 theme = &#39;ananke&#39; 写入 hugo.toml，按需调整 baseURL、title 写一篇文章：hugo new posts/my-first-post.md，填入正文 本地验证：hugo server -D 打开 http://localhost:1313 检查页面 自动化构建脚本 仓库提供了 build.sh 作为 Vercel 的构建入口：
+安装 Dart Sass、Go、Hugo、Node.js 固定版本，保证 Vercel 环境一致 最终执行：hugo --gc --minify --baseURL &#34;https://${VERCEL_PROJECT_PRODUCTION_URL}&#34;
+VERCEL_PROJECT_PRODUCTION_URL 由 Vercel 自动注入，可让生成站点指向生产域名 如需调整版本，修改脚本开头的几个 *_VERSION 变量即可 本地想模拟 Vercel，可以先导出域名再运行脚本：">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-01-12T22:59:20+08:00">
+    <meta property="article:modified_time" content="2026-01-12T22:59:20+08:00">
+
+  <meta itemprop="name" content="配置hugo&#43;vercel自动化环境">
+  <meta itemprop="description" content="想把 Hugo 博客托管到 Vercel，并在每次推送后自动构建发布？下面用本仓库的配置做个完整示例。
+前置条件 已有 Vercel 账号，并能从 GitHub/GitLab/Bitbucket 导入仓库 本地安装 Git、curl，推荐先安装 Hugo Extended 版（brew install hugo） 代码里有一个 Hugo 站点，本例主题是 ananke，基础配置在 hugo.toml 本地准备 初始化站点：hugo new site quickstart &amp;&amp; cd quickstart 添加主题并配置：将 theme = &#39;ananke&#39; 写入 hugo.toml，按需调整 baseURL、title 写一篇文章：hugo new posts/my-first-post.md，填入正文 本地验证：hugo server -D 打开 http://localhost:1313 检查页面 自动化构建脚本 仓库提供了 build.sh 作为 Vercel 的构建入口：
+安装 Dart Sass、Go、Hugo、Node.js 固定版本，保证 Vercel 环境一致 最终执行：hugo --gc --minify --baseURL &#34;https://${VERCEL_PROJECT_PRODUCTION_URL}&#34;
+VERCEL_PROJECT_PRODUCTION_URL 由 Vercel 自动注入，可让生成站点指向生产域名 如需调整版本，修改脚本开头的几个 *_VERSION 变量即可 本地想模拟 Vercel，可以先导出域名再运行脚本：">
+  <meta itemprop="datePublished" content="2026-01-12T22:59:20+08:00">
+  <meta itemprop="dateModified" content="2026-01-12T22:59:20+08:00">
+  <meta itemprop="wordCount" content="156">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="配置hugo&#43;vercel自动化环境">
+  <meta name="twitter:description" content="想把 Hugo 博客托管到 Vercel，并在每次推送后自动构建发布？下面用本仓库的配置做个完整示例。
+前置条件 已有 Vercel 账号，并能从 GitHub/GitLab/Bitbucket 导入仓库 本地安装 Git、curl，推荐先安装 Hugo Extended 版（brew install hugo） 代码里有一个 Hugo 站点，本例主题是 ananke，基础配置在 hugo.toml 本地准备 初始化站点：hugo new site quickstart &amp;&amp; cd quickstart 添加主题并配置：将 theme = &#39;ananke&#39; 写入 hugo.toml，按需调整 baseURL、title 写一篇文章：hugo new posts/my-first-post.md，填入正文 本地验证：hugo server -D 打开 http://localhost:1313 检查页面 自动化构建脚本 仓库提供了 build.sh 作为 Vercel 的构建入口：
+安装 Dart Sass、Go、Hugo、Node.js 固定版本，保证 Vercel 环境一致 最终执行：hugo --gc --minify --baseURL &#34;https://${VERCEL_PROJECT_PRODUCTION_URL}&#34;
+VERCEL_PROJECT_PRODUCTION_URL 由 Vercel 自动注入，可让生成站点指向生产域名 如需调整版本，修改脚本开头的几个 *_VERSION 变量即可 本地想模拟 Vercel，可以先导出域名再运行脚本：">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        安全碎碎念
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">配置hugo&#43;vercel自动化环境</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2026-01-12T22:59:20+08:00">January 12, 2026</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>想把 Hugo 博客托管到 Vercel，并在每次推送后自动构建发布？下面用本仓库的配置做个完整示例。</p>
+<h2 id="前置条件">前置条件</h2>
+<ul>
+<li>已有 Vercel 账号，并能从 GitHub/GitLab/Bitbucket 导入仓库</li>
+<li>本地安装 Git、curl，推荐先安装 Hugo Extended 版（<code>brew install hugo</code>）</li>
+<li>代码里有一个 Hugo 站点，本例主题是 <code>ananke</code>，基础配置在 <code>hugo.toml</code></li>
+</ul>
+<h2 id="本地准备">本地准备</h2>
+<ol>
+<li>初始化站点：<code>hugo new site quickstart &amp;&amp; cd quickstart</code></li>
+<li>添加主题并配置：将 <code>theme = 'ananke'</code> 写入 <code>hugo.toml</code>，按需调整 <code>baseURL</code>、<code>title</code></li>
+<li>写一篇文章：<code>hugo new posts/my-first-post.md</code>，填入正文</li>
+<li>本地验证：<code>hugo server -D</code> 打开 <a href="http://localhost:1313">http://localhost:1313</a> 检查页面</li>
+</ol>
+<h2 id="自动化构建脚本">自动化构建脚本</h2>
+<p>仓库提供了 <code>build.sh</code> 作为 Vercel 的构建入口：</p>
+<ul>
+<li>安装 Dart Sass、Go、Hugo、Node.js 固定版本，保证 Vercel 环境一致</li>
+<li>最终执行：<code>hugo --gc --minify --baseURL &quot;https://${VERCEL_PROJECT_PRODUCTION_URL}&quot;</code><br>
+<code>VERCEL_PROJECT_PRODUCTION_URL</code> 由 Vercel 自动注入，可让生成站点指向生产域名</li>
+<li>如需调整版本，修改脚本开头的几个 <code>*_VERSION</code> 变量即可</li>
+</ul>
+<p>本地想模拟 Vercel，可以先导出域名再运行脚本：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export VERCEL_PROJECT_PRODUCTION_URL<span style="color:#f92672">=</span>your-project.vercel.app
+</span></span><span style="display:flex;"><span>chmod a+x build.sh <span style="color:#f92672">&amp;&amp;</span> ./build.sh
+</span></span></code></pre></div><p>生成好的静态文件会落在 <code>public/</code> 目录。</p>
+<h2 id="vercel-配置">Vercel 配置</h2>
+<ol>
+<li>仓库根目录放置 <code>vercel.json</code>，内容示例：
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;$schema&#34;</span>: <span style="color:#e6db74">&#34;https://openapi.vercel.sh/vercel.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;buildCommand&#34;</span>: <span style="color:#e6db74">&#34;chmod a+x build.sh &amp;&amp; ./build.sh&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;outputDirectory&#34;</span>: <span style="color:#e6db74">&#34;public&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>在 Vercel 仪表盘点击「Add New… → Project」，导入仓库</li>
+<li>Build Command 设置为上面一行，Output Directory 填 <code>public</code></li>
+<li>默认环境变量即可（生产域名会自动注入），若需要自定义时区等，可在项目 Settings → Environment Variables 里添加</li>
+<li>保存后触发首个构建，构建日志里可看到 Hugo 版本、构建耗时等信息</li>
+</ol>
+<h2 id="自动化发布流程">自动化发布流程</h2>
+<ul>
+<li>推送到主分支 → Vercel 自动构建发布到生产域名（如 <code>*.vercel.app</code> 或自定义域名）</li>
+<li>提交 Pull Request → 自动生成 Preview 预览链接，合并后再发布生产</li>
+<li>日志与回滚：在 Vercel 的 Deployments 页面可以查看日志，必要时回滚到任意历史部署</li>
+</ul>
+<h2 id="常见问题">常见问题</h2>
+<ul>
+<li>构建失败且提示版本不兼容：在 <code>build.sh</code> 更新对应版本号或精简依赖</li>
+<li>页面资源 404：确认 <code>baseURL</code> 是否正确，尤其是本地手动运行时要设置 <code>VERCEL_PROJECT_PRODUCTION_URL</code></li>
+<li>本地和线上效果不一致：本地用 <code>./build.sh</code> 生成 <code>public/</code> 再 <code>hugo server --renderToDisk</code> 对比输出</li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  安全碎碎念 2026 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
