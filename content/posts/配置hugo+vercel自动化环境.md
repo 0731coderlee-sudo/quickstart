@@ -1,8 +1,7 @@
-+++
-date = '2026-01-12T22:59:20+08:00'
-draft = false
-title = '配置hugo+vercel自动化环境'
-+++
+---
+title: '配置hugo+vercel自动化环境'
+cover: /Users/luckyme/Documents/quickstart/assets/pics/截屏2026-01-12 23.44.17.png
+---
 
 想把 Hugo 博客托管到 Vercel，并在每次推送后自动构建发布？下面用本仓库的配置做个完整示例。
 

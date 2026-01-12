@@ -2,17 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 安全碎碎念</title>
-    <link>http://localhost:1313/posts/</link>
+    <link>https://example.org/posts/</link>
     <description>Recent content in Posts on 安全碎碎念</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Jan 2026 22:59:20 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>配置hugo&#43;vercel自动化环境</title>
-      <link>http://localhost:1313/posts/%E9%85%8D%E7%BD%AEhugo&#43;vercel%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/</link>
-      <pubDate>Mon, 12 Jan 2026 22:59:20 +0800</pubDate>
-      <guid>http://localhost:1313/posts/%E9%85%8D%E7%BD%AEhugo&#43;vercel%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/</guid>
+      <link>https://example.org/posts/%E9%85%8D%E7%BD%AEhugo&#43;vercel%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/posts/%E9%85%8D%E7%BD%AEhugo&#43;vercel%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/</guid>
       <description>&lt;p&gt;想把 Hugo 博客托管到 Vercel，并在每次推送后自动构建发布？下面用本仓库的配置做个完整示例。&lt;/p&gt;&#xA;&lt;h2 id=&#34;前置条件&#34;&gt;前置条件&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;已有 Vercel 账号，并能从 GitHub/GitLab/Bitbucket 导入仓库&lt;/li&gt;&#xA;&lt;li&gt;本地安装 Git、curl，推荐先安装 Hugo Extended 版（&lt;code&gt;brew install hugo&lt;/code&gt;）&lt;/li&gt;&#xA;&lt;li&gt;代码里有一个 Hugo 站点，本例主题是 &lt;code&gt;ananke&lt;/code&gt;，基础配置在 &lt;code&gt;hugo.toml&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;本地准备&#34;&gt;本地准备&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;初始化站点：&lt;code&gt;hugo new site quickstart &amp;amp;&amp;amp; cd quickstart&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;添加主题并配置：将 &lt;code&gt;theme = &#39;ananke&#39;&lt;/code&gt; 写入 &lt;code&gt;hugo.toml&lt;/code&gt;，按需调整 &lt;code&gt;baseURL&lt;/code&gt;、&lt;code&gt;title&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;写一篇文章：&lt;code&gt;hugo new posts/my-first-post.md&lt;/code&gt;，填入正文&lt;/li&gt;&#xA;&lt;li&gt;本地验证：&lt;code&gt;hugo server -D&lt;/code&gt; 打开 &lt;a href=&#34;http://localhost:1313&#34;&gt;http://localhost:1313&lt;/a&gt; 检查页面&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;自动化构建脚本&#34;&gt;自动化构建脚本&lt;/h2&gt;&#xA;&lt;p&gt;仓库提供了 &lt;code&gt;build.sh&lt;/code&gt; 作为 Vercel 的构建入口：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;安装 Dart Sass、Go、Hugo、Node.js 固定版本，保证 Vercel 环境一致&lt;/li&gt;&#xA;&lt;li&gt;最终执行：&lt;code&gt;hugo --gc --minify --baseURL &amp;quot;https://${VERCEL_PROJECT_PRODUCTION_URL}&amp;quot;&lt;/code&gt;&lt;br&gt;&#xA;&lt;code&gt;VERCEL_PROJECT_PRODUCTION_URL&lt;/code&gt; 由 Vercel 自动注入，可让生成站点指向生产域名&lt;/li&gt;&#xA;&lt;li&gt;如需调整版本，修改脚本开头的几个 &lt;code&gt;*_VERSION&lt;/code&gt; 变量即可&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;本地想模拟 Vercel，可以先导出域名再运行脚本：&lt;/p&gt;</description>
     </item>
   </channel>
