@@ -1,3 +1,8 @@
+---
+title: 'Terraform 基本使用（Docker + Nginx 示例）'
+cover: /Users/luckyme/Documents/quickstart/assets/pics/截屏2026-01-13 00.54.14.png
+---
+
 +++
 date = '2026-01-13T00:41:40+08:00'
 draft = false
